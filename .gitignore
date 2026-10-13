@@ -216,3 +216,11 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Ignore large Parquet files (project data)
+task_final/data/*.parquet
+task_final/data/*.zip
+*.parquet
+
+# Ignore Postgres data volumes
+postgres_project_data/
