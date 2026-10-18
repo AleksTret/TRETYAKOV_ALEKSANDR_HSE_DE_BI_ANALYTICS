@@ -152,25 +152,3 @@ docker compose up -d postgres_project
 ```
 
 **`-v` удалит volume** — данные придётся загружать заново.
-
-## Структура данных
-
-| Таблица | Строк (примерно) | Поля |
-|---|---|---|
-| `yellow_trips` | ~13 млн | 20 |
-| `green_trips` | ~280k | 22 |
-| `fhv_trips` | ~4 млн | 7 |
-| `hvfhv_trips` | ~80 млн | 25 |
-| **Итого** | **~100 млн** | — |
-
-## SQL-запросы
-
-Исследовательские SQL-запросы — в папке `sql/queries/`:
-- `q1_market_share.sql` — распределение рынка
-- `q2_seasonal_dynamics.sql` — динамика по сезонам
-- `q3_total_trips.sql` — общее число поездок
-- `q4_hourly_weekly.sql` — распределение по часам/дням
-- `q5_peak_hours.sql` — часы пик по сезонам
-- `q6_popular_zones.sql` — популярные зоны
-- `q7_geographic_specialization.sql` — география
-- `q8_trip_duration.sql` — длительность поездок
