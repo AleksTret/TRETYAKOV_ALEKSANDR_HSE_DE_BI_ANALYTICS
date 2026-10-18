@@ -1,0 +1,38 @@
+services:
+  postgres_project:
+    image: postgres:15
+    container_name: postgres_project
+    environment:
+      POSTGRES_DB: nyc_taxi
+      POSTGRES_USER: taxi_user
+      POSTGRES_PASSWORD: taxi_pass
+    volumes:
+      - postgres_project_data:/var/lib/postgresql/data
+      - ./sql/init:/docker-entrypoint-initdb.d
+    ports:
+      - "5433:5432"
+    networks:
+      - superset_default
+
+  loader:
+    build: ./loader
+    container_name: nyc_taxi_loader
+    depends_on:
+      - postgres_project
+    volumes:
+      - ./data:/data
+    environment:
+      POSTGRES_HOST: postgres_project
+      POSTGRES_PORT: 5432
+      POSTGRES_DB: nyc_taxi
+      POSTGRES_USER: taxi_user
+      POSTGRES_PASSWORD: taxi_pass
+    networks:
+      - superset_default
+
+volumes:
+  postgres_project_data:
+
+networks:
+  superset_default:
+    external: true

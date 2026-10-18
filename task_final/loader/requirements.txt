@@ -1,0 +1,5 @@
+pandas==2.1.4
+pyarrow==14.0.2
+sqlalchemy==2.0.25
+psycopg2-binary==2.9.9
+git+https://github.com/harvard-growth-lab/pandas-to-postgres.git@main
